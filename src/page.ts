@@ -1,12 +1,12 @@
 import path from 'path';
+import Log from './log';
 import fs from 'fs-extra';
+import { promptsCancel } from './utils/utils';
 import prompts, { PromptObject } from 'prompts';
 import { createPageMsg, overWriteFiles } from './questions';
 import { vuePageTpl, reactPageTpl, moduleScss } from './tpl';
 import { Project, ScriptTarget, VariableDeclarationKind, QuoteKind } from 'ts-morph';
 import type { updateRouterParam } from './types/page';
-import Log from './log';
-import { promptsCancel } from './utils/utils';
 
 const logger = new Log();
 const cwd = process.cwd();
