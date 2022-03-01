@@ -28,6 +28,17 @@
     ]
   },
   "author": "cirolee<ciromail@126.com>",
+  "homepage": "https://github.com/CiroLee/mew-cli",
+  "bugs": {
+    "url": "https://github.com/CiroLee/mew-cli/issues"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CiroLee/mew-cli.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "@commitlint/config-conventional": "^16.2.1",

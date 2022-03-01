@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import minimist from 'minimist';
-import { initProject } from './commands';
+import { initProject } from './init';
 import Git from './git';
 import { executeFeature } from './features';
 import { omit } from './utils/utils';
@@ -12,11 +12,7 @@ const noOptionsArgs = argv._ || [];
 const optionsArgs = omit<ObjType>(argv, ['_']);
 const cmd = noOptionsArgs[0];
 const git = new Git();
-/**
- * todo
- * 迁移git操作
- * 迁移创建页面操作
- */
+
 (async function run() {
   switch (cmd) {
     case 'init':
