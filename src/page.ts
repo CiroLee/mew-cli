@@ -6,12 +6,11 @@ import { vuePageTpl, reactPageTpl, moduleScss } from './tpl';
 import { Project, ScriptTarget, VariableDeclarationKind, QuoteKind } from 'ts-morph';
 import type { updateRouterParam } from './types/page';
 import Log from './log';
+import { promptsCancel } from './utils/utils';
 
 const logger = new Log();
 const cwd = process.cwd();
-const promptsCancel = () => {
-  process.exit(0);
-};
+
 const project = new Project({
   compilerOptions: {
     target: ScriptTarget.ESNext,
