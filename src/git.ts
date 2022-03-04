@@ -7,6 +7,7 @@ import { promptsCancel } from './utils/utils';
 import prompts, { PromptObject } from 'prompts';
 import { commitLintsMsg, bindRepositoryMsg } from './questions';
 import ChildProcess from './child-process';
+import { download as downloadGitRepo } from 'obtain-git-repo';
 import type { GitDownload } from './types/git';
 
 const logger = new Log();
@@ -70,25 +71,26 @@ export default class Git extends ChildProcess {
       process.exit(0);
     }
   }
-  // clone --> copy to dest --> delete template and delete .git
-  async download({ templateName, destination, options = {} }: GitDownload) {
+
+  async download({ templateName, destination, options = {}, callback }: GitDownload) {
     try {
-      const gitHttps = `https://github.com/CiroLee/${templateName}.git`;
+      const gitRepo = `CiroLee/${templateName}`;
       const templatePath = path.resolve(__dirname, templateName);
       if (fs.existsSync(templatePath)) {
         fs.remove(templatePath);
       }
       spinner.start('downloading template...');
-      await this.exec(`git clone ${gitHttps}`, {
-        ...options,
-        cwd: path.resolve(__dirname),
+      downloadGitRepo(gitRepo, destination, options, err => {
+        if (err) {
+          spinner.fail('fail to download rempalte');
+          throw Error(JSON.stringify(err, null, 2));
+        }
+        spinner.succeed('success to download template!');
+        callback?.(destination);
       });
-      await fs.copy(templatePath, destination);
-      await fs.remove(templatePath);
-      await this.exec('rm -rf .git', { cwd: destination });
-      spinner.succeed('success to download template!');
     } catch (error) {
       console.error(error);
+      process.exit(0);
     }
   }
 }

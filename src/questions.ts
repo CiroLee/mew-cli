@@ -3,7 +3,7 @@ const { gray } = kolorist;
 export const initProjectMsg = [
   {
     type: 'text',
-    name: 'project-name',
+    name: 'projectName',
     message: '项目名称',
     initial: 'demo-project',
   },
@@ -33,8 +33,8 @@ export const installToolMsg = {
   name: 'tool',
   message: '选择安装工具',
   choices: [
-    { title: 'npm', value: 'npm' },
     { title: 'pnpm', value: 'pnpm' },
+    { title: 'npm', value: 'npm' },
     { title: 'yarn', value: 'yarn' },
   ],
 };

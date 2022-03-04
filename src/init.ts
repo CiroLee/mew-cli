@@ -21,15 +21,15 @@ const childProcess = new ChildProcess();
  */
 export async function initProject() {
   try {
-    const { 'project-name': projectName, template } = await prompts(initProjectMsg as PromptObject[], {
+    const { projectName, template } = await prompts(initProjectMsg as PromptObject[], {
       onCancel: promptsCancel,
     });
     await createDir(path.resolve(process.cwd(), projectName));
     await git.download({
       templateName: `${template}-tpl`,
       destination: path.resolve(process.cwd(), projectName),
+      callback: installPackage,
     });
-    await installPackage(path.resolve(process.cwd(), projectName));
   } catch (error) {
     console.error(error);
     process.exit(0);

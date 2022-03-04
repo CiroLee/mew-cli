@@ -1,6 +1,9 @@
-import { ExecOptions } from 'child_process';
 export interface GitDownload {
   templateName: string;
   destination: string;
-  options?: ExecOptions;
+  options?: {
+    clone?: boolean;
+    headers?: Record<string, string>;
+  };
+  callback?: (path: string) => void;
 }
