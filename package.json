@@ -1,5 +1,5 @@
 {
-  "name": "mew-cli",
+  "name": "@bbt/mew-cli",
   "version": "0.0.1",
   "description": "frontend scaffold,simple and fast",
   "main": "lib/index.mjs",
@@ -33,7 +33,7 @@
     "url": "https://github.com/CiroLee/mew-cli/issues"
   },
   "files": [
-    "lib"
+    "lib/*"
   ],
   "repository": {
     "type": "git",
