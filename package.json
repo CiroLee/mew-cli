@@ -1,6 +1,6 @@
 {
   "name": "mew-cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "frontend scaffold,simple and fast",
   "main": "lib/index.mjs",
   "types": "lib/index.d.ts",
