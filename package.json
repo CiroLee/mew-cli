@@ -1,5 +1,5 @@
 {
-  "name": "@bbt/mew-cli",
+  "name": "mew-cli",
   "version": "0.0.1",
   "description": "frontend scaffold,simple and fast",
   "main": "lib/index.mjs",
